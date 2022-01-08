@@ -1,0 +1,93 @@
+:root {
+  --text-color: #0e2431;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #17a2b8;
+  overflow: hidden;
+}
+
+nav {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 70px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+
+nav .nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Giramos 45° a la izquierda para que los elementos salgan a la izquierda del eje Y (Incluye a us hijos) - A** */
+  transform: rotate(-45deg);
+}
+
+.nav-content .toggle-btn,
+.nav-content span a {
+  height: 60px;
+  width: 60px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-content .toggle-btn {
+  font-size: 35px;
+  color: var(--text-color);
+  z-index: 100;
+  cursor: pointer;
+  /* El icono de plus esta inclinado 45° por culpa de su contenedor, con esta rotación hacemos que regrese a su forma original */
+  transform: rotate(-225deg);
+  transition: all 0.6s ease;
+}
+
+nav.open .toggle-btn {
+  /* El icono de plus regresa a estar girado 45° para parecerse a un x(close) */
+  transform: rotate(0deg);
+}
+
+.nav-content span {
+  position: absolute;
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+nav.open .nav-content span {
+  /* Rota el contendor para apuntar a un centro (Esto afecta a sus hijos) - B** */
+  transform: rotate(calc(var(--i) * (360deg / 8))) translateY(120px);
+  opacity: 1;
+}
+
+.nav-content span a {
+  text-decoration: none;
+  /* Revierte la rotacion del contenedor - A** */
+  transform: rotate(45deg);
+}
+
+.nav-content span a i {
+  font-size: 24px;
+  color: var(--text-color);
+  /* Revierte la rotación de su contenedor (Su contendor esta girado, sin embargo si contenido regreso a su estado inicial) - B** */
+  transform: rotate(calc(var(--i) * (360deg / -8)));
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.nav-content span a:hover i {
+  opacity: 1;
+}
