@@ -1,0 +1,209 @@
+:root {
+  --primary-color: #4070f4;
+  --primary-color-light: #275df1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, Ubuntu;
+}
+
+body {
+  overflow: hidden;
+}
+
+section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section .profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section.show .profile {
+  display: none;
+}
+
+section .profile .profile-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  padding: 2px;
+  margin-bottom: 10px;
+}
+
+.profile .profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.profile .name,
+.profile .profession {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.profile .profession {
+  font-weight: 400;
+  margin-top: -6px;
+}
+
+.profile .button {
+  padding: 12px 20px;
+  background-color: var(--primary-color);
+  margin-top: 15px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile .button:hover {
+  background-color: var(--primary-color-light);
+}
+
+.profile .button i {
+  color: #fff;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.profile .button button {
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+}
+
+/*  Popup */
+
+section .popup-outer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(1.2);
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+section.show .popup-outer {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+section .popup-box {
+  position: relative;
+  padding: 30px;
+  max-width: 380px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+section .popup-box .close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  color: #b4b4b4;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+section .popup-box .close:hover {
+  color: #333;
+}
+
+section .popup-box .profile-text {
+  display: flex;
+  align-items: center;
+}
+
+section .popup-box img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-text .text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.profile-text .text .name {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-text .text .profession {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+section .popup-box textarea {
+  min-height: 140px;
+  width: 100%;
+  margin-top: 20px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 6px;
+  resize: none;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: #f3f3f3;
+}
+
+section .popup-box .button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+.popup-box .button button {
+  outline: none;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: #6f93f6;
+  margin-left: 8px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.popup-box .button button.cancel {
+  background-color: #f082ac;
+}
+
+.popup-box .button button.send:hover {
+  background-color: var(--primary-color-light);
+}
