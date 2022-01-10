@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modal responsive</title>
+	<link rel="stylesheet" href="styles.css">
+
+	<!-- Boxicons CSS -->
+	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+	<div class="fake-page flex-center">
+		<buttton id="open" class="btn btn-primary">
+			Open modal
+		</buttton>
+	</div>
+	<div id="modal-outer" class="modal-outer open">
+		<div id="modal" class="modal">
+			<div id="close" class="close flex-center">
+				<i class="bx bx-x"></i>
+			</div>
+			<div class="modal-img">
+				<img src="icon-image.jpg" alt="">
+			</div>
+			<div class="modal-content">
+				<span class="title">Christian Quispe</span>
+				<span class="title">Front End Developer</span>
+			</div>
+			<div class="modal-buttons">
+				<button id="close" class="btn">Cancel</button>
+				<button id="close" class="btn btn-primary">Ok</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="scripts.js"></script>
+</body>
+
+</html>
